@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://KSR-29 sniper rifle new_fbx_74_binary.gd" type="Script" id=2]
+[ext_resource path="res://scene/Bullet.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "shot"
+length = 0.146
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
+}
+
+[node name="KSR-29 sniper rifle new_fbx_74_binary" type="Spatial"]
+script = ExtResource( 2 )
+status = {
+"ammo": 30,
+"ammo_cap": 30,
+"critical_chanse": 20,
+"critical_multe": 2.3,
+"damage": 100,
+"damage_effect": 20,
+"electricity": 0,
+"fire": 0,
+"ice": 0,
+"magazine": 90,
+"magazine_cap": 90,
+"poison": 0,
+"speed": 500
+}
+held_right = true
+bulliet_emitter = NodePath("Cube2/RayCast")
+bullet = ExtResource( 3 )
+
+[node name="Cube2" type="Spatial" parent="."]
+transform = Transform( -2.92791e-06, 17.9714, 2.92791e-06, 0, -2.92791e-06, 17.9714, 17.9714, 2.92791e-06, 4.77018e-13, -0.00710446, -0.00416008, 2.79397e-09 )
+
+[node name="RayCast" type="RayCast" parent="Cube2"]
+transform = Transform( 0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0.0673941, -7.26753e-10, 0.00633083 )
+enabled = true
+cast_to = Vector3( 1000, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Cube2"]
+transform = Transform( 0.0420956, 6.48672e-09, 1.05682e-15, 6.48671e-09, 0.00228036, 6.66134e-16, 1.05682e-15, -6.66134e-16, 0.00228036, 0.0236042, 2.85218e-09, 0.00611763 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Cube2"]
+transform = Transform( 0.00268854, -5.39237e-10, 0.00371799, 3.39776e-10, 0.00228036, 6.36668e-12, -0.00167738, -8.72654e-10, 0.00595928, -3.40805e-05, 2.91038e-10, -0.00057728 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shot = SubResource( 2 )

@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/UI/player_ui.gd" type="Script" id=1]
+
+
+[node name="ui" type="MarginContainer"]
+margin_right = 180.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="status" type="VBoxContainer" parent="."]
+margin_right = 180.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="health_bar" type="MarginContainer" parent="status"]
+margin_right = 180.0
+margin_bottom = 25.0
+
+[node name="ProgressBar" type="ProgressBar" parent="status/health_bar"]
+margin_right = 180.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 180, 25 )
+step = 1.0
+value = 99.0
+percent_visible = false
+
+[node name="NinePatchRect" type="HBoxContainer" parent="status/health_bar"]
+margin_right = 180.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="status/health_bar/NinePatchRect"]
+margin_top = 5.0
+margin_right = 18.0
+margin_bottom = 19.0
+text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="status/health_bar/NinePatchRect"]
+margin_left = 22.0
+margin_top = 5.0
+margin_right = 107.0
+margin_bottom = 19.0
+text = "50000/10000"
+
+[node name="MP_bar" type="MarginContainer" parent="status"]
+margin_top = 29.0
+margin_right = 180.0
+margin_bottom = 54.0
+
+[node name="ProgressBar" type="ProgressBar" parent="status/MP_bar"]
+margin_right = 180.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 180, 25 )
+step = 1.0
+percent_visible = false
+
+[node name="NinePatchRect2" type="HBoxContainer" parent="status/MP_bar"]
+margin_right = 180.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Label" type="Label" parent="status/MP_bar/NinePatchRect2"]
+margin_top = 5.0
+margin_right = 20.0
+margin_bottom = 19.0
+text = "MP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="status/MP_bar/NinePatchRect2"]
+margin_left = 24.0
+margin_top = 5.0
+margin_right = 109.0
+margin_bottom = 19.0
+text = "50000/10000"

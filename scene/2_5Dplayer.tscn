@@ -1,0 +1,169 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://scripts/2.5Dplayer/2.5D_movment.gd" type="Script" id=1]
+[ext_resource path="res://scripts/player_statues.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "HumanArmature|Walking"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "turn_right"
+
+[sub_resource type="AnimationNodeBlend2" id=4]
+
+[sub_resource type="AnimationNodeBlendTree" id=5]
+graph_offset = Vector2( -258, 94 )
+nodes/Animation/node = SubResource( 3 )
+nodes/Animation/position = Vector2( 20, 140 )
+"nodes/Animation 2/node" = SubResource( 2 )
+"nodes/Animation 2/position" = Vector2( 0, 240 )
+nodes/Blend2/node = SubResource( 4 )
+nodes/Blend2/position = Vector2( 300, 100 )
+nodes/output/position = Vector2( 500, 100 )
+node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "turn_left"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "HumanArmature|Walking"
+
+[sub_resource type="AnimationNodeBlend2" id=8]
+
+[sub_resource type="AnimationNodeBlendTree" id=9]
+graph_offset = Vector2( -377, 78 )
+nodes/Animation/node = SubResource( 7 )
+nodes/Animation/position = Vector2( -120, 80 )
+"nodes/Animation 2/node" = SubResource( 6 )
+"nodes/Animation 2/position" = Vector2( -80, 180 )
+nodes/Blend2/node = SubResource( 8 )
+nodes/Blend2/position = Vector2( 180, 120 )
+nodes/output/position = Vector2( 460, 140 )
+node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation 2", "Blend2", 1, "Animation" ]
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "HumanArmature|Death"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "HumanArmature|Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "HumanArmature|Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "HumanArmature|Roll"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "HumanArmature|Run"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "HumanArmature|Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 1
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+switch_mode = 1
+auto_advance = true
+xfade_time = 2.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 1
+auto_advance = true
+xfade_time = 3.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 1
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 1
+auto_advance = true
+xfade_time = 3.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachine" id=37]
+states/BlendTree/node = SubResource( 9 )
+states/BlendTree/position = Vector2( -177, -71.1989 )
+"states/BlendTree 2/node" = SubResource( 5 )
+"states/BlendTree 2/position" = Vector2( -277, 10.8011 )
+states/HumanArmature|Death/node = SubResource( 10 )
+states/HumanArmature|Death/position = Vector2( 160, 170 )
+states/HumanArmature|Idle/node = SubResource( 11 )
+states/HumanArmature|Idle/position = Vector2( 83, 74 )
+states/HumanArmature|Jump/node = SubResource( 12 )
+states/HumanArmature|Jump/position = Vector2( 471, -10 )
+states/HumanArmature|Roll/node = SubResource( 13 )
+states/HumanArmature|Roll/position = Vector2( 706, 133.801 )
+states/HumanArmature|Run/node = SubResource( 14 )
+states/HumanArmature|Run/position = Vector2( 873, 25 )
+states/HumanArmature|Walking/node = SubResource( 15 )
+states/HumanArmature|Walking/position = Vector2( 494, 66 )
+transitions = [ "HumanArmature|Idle", "HumanArmature|Walking", SubResource( 16 ), "HumanArmature|Walking", "HumanArmature|Idle", SubResource( 17 ), "HumanArmature|Run", "HumanArmature|Walking", SubResource( 18 ), "HumanArmature|Run", "HumanArmature|Idle", SubResource( 19 ), "HumanArmature|Walking", "HumanArmature|Run", SubResource( 20 ), "HumanArmature|Idle", "HumanArmature|Jump", SubResource( 21 ), "HumanArmature|Walking", "HumanArmature|Jump", SubResource( 22 ), "HumanArmature|Run", "HumanArmature|Jump", SubResource( 23 ), "HumanArmature|Jump", "HumanArmature|Run", SubResource( 24 ), "HumanArmature|Jump", "HumanArmature|Walking", SubResource( 25 ), "HumanArmature|Jump", "HumanArmature|Idle", SubResource( 26 ), "HumanArmature|Idle", "HumanArmature|Death", SubResource( 27 ), "HumanArmature|Idle", "HumanArmature|Roll", SubResource( 28 ), "HumanArmature|Roll", "HumanArmature|Idle", SubResource( 29 ), "HumanArmature|Walking", "HumanArmature|Roll", SubResource( 30 ), "HumanArmature|Jump", "HumanArmature|Roll", SubResource( 31 ), "HumanArmature|Run", "HumanArmature|Roll", SubResource( 32 ), "HumanArmature|Idle", "BlendTree 2", SubResource( 33 ), "BlendTree 2", "HumanArmature|Idle", SubResource( 34 ), "BlendTree", "HumanArmature|Idle", SubResource( 35 ), "HumanArmature|Idle", "BlendTree", SubResource( 36 ) ]
+start_node = "HumanArmature|Idle"
+graph_offset = Vector2( -561, -110.199 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=38]
+
+[node name="player" type="Spatial"]
+script = ExtResource( 2 )
+playerType = 2
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+script = ExtResource( 1 )
+speed = 200.0
+object = NodePath("mesh")
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.51613, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimationTree" type="AnimationTree" parent="KinematicBody"]
+tree_root = SubResource( 37 )
+anim_player = NodePath("../KnightCharacter/AnimationPlayer")
+parameters/playback = SubResource( 38 )
+parameters/BlendTree/Blend2/blend_amount = 0.5
+"parameters/BlendTree 2/Blend2/blend_amount" = 0.5
+
+[node name="Camera" type="Camera" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.92749, 6.67188 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+
+[node name="mesh" type="Spatial" parent="KinematicBody"]

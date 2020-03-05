@@ -1,0 +1,230 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scene/joystick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/button/jump.gd" type="Script" id=2]
+[ext_resource path="res://scripts/UI/HUD.gd" type="Script" id=3]
+[ext_resource path="res://scripts/button/attack.gd" type="Script" id=4]
+
+
+
+[node name="HUD manage" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 10.0
+margin_right = -12.0
+margin_bottom = -16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1000.0
+margin_bottom = 574.0
+size_flags_horizontal = 3
+
+[node name="nav" type="MarginContainer" parent="HBoxContainer"]
+margin_right = 1000.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/nav"]
+margin_right = 1000.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="MarginContainer" parent="HBoxContainer/nav/HBoxContainer"]
+margin_right = 939.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pause" type="Button" parent="HBoxContainer/nav/HBoxContainer"]
+margin_left = 943.0
+margin_right = 1000.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.06
+text = "ll"
+
+[node name="body" type="HBoxContainer" parent="HBoxContainer"]
+margin_top = 24.0
+margin_right = 1000.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 0, 300 )
+rect_pivot_offset = Vector2( 1077.9, 4 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/body"]
+margin_right = 330.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/body"]
+margin_left = 334.0
+margin_right = 664.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/body"]
+margin_left = 668.0
+margin_right = 1000.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="control" type="MarginContainer" parent="HBoxContainer"]
+margin_top = 328.0
+margin_right = 1000.0
+margin_bottom = 574.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/control"]
+margin_right = 1000.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="joystick container" type="CenterContainer" parent="HBoxContainer/control/HBoxContainer"]
+margin_right = 274.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="HBoxContainer/control/HBoxContainer/joystick container"]
+margin_left = 137.0
+margin_top = 123.0
+margin_right = 137.0
+margin_bottom = 123.0
+
+[node name="Sprite" parent="HBoxContainer/control/HBoxContainer/joystick container/Control" instance=ExtResource( 1 )]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 31, 10 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="joystick" parent="HBoxContainer/control/HBoxContainer/joystick container/Control/Sprite" index="0"]
+modulate = Color( 0.105882, 0.286275, 0.360784, 1 )
+
+[node name="statues" type="VBoxContainer" parent="HBoxContainer/control/HBoxContainer"]
+margin_left = 278.0
+margin_right = 721.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.62
+
+[node name="dialog" type="MarginContainer" parent="HBoxContainer/control/HBoxContainer/statues"]
+margin_right = 443.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="status" type="VBoxContainer" parent="HBoxContainer/control/HBoxContainer/statues"]
+margin_top = 192.0
+margin_right = 443.0
+margin_bottom = 246.0
+
+[node name="health_bar" type="MarginContainer" parent="HBoxContainer/control/HBoxContainer/statues/status"]
+margin_right = 443.0
+margin_bottom = 25.0
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/control/HBoxContainer/statues/status/health_bar"]
+margin_right = 443.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 180, 25 )
+step = 1.0
+value = 99.0
+percent_visible = false
+
+[node name="NinePatchRect" type="HBoxContainer" parent="HBoxContainer/control/HBoxContainer/statues/status/health_bar"]
+margin_right = 443.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/control/HBoxContainer/statues/status/health_bar/NinePatchRect"]
+margin_top = 5.0
+margin_right = 18.0
+margin_bottom = 19.0
+text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="HBoxContainer/control/HBoxContainer/statues/status/health_bar/NinePatchRect"]
+margin_left = 22.0
+margin_top = 5.0
+margin_right = 107.0
+margin_bottom = 19.0
+text = "50000/10000"
+
+[node name="MP_bar" type="MarginContainer" parent="HBoxContainer/control/HBoxContainer/statues/status"]
+margin_top = 29.0
+margin_right = 443.0
+margin_bottom = 54.0
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/control/HBoxContainer/statues/status/MP_bar"]
+margin_right = 443.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 180, 25 )
+step = 1.0
+percent_visible = false
+
+[node name="NinePatchRect" type="HBoxContainer" parent="HBoxContainer/control/HBoxContainer/statues/status/MP_bar"]
+margin_right = 443.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Label" type="Label" parent="HBoxContainer/control/HBoxContainer/statues/status/MP_bar/NinePatchRect"]
+margin_top = 5.0
+margin_right = 20.0
+margin_bottom = 19.0
+text = "MP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="HBoxContainer/control/HBoxContainer/statues/status/MP_bar/NinePatchRect"]
+margin_left = 24.0
+margin_top = 5.0
+margin_right = 109.0
+margin_bottom = 19.0
+text = "50000/10000"
+
+[node name="buttons" type="GridContainer" parent="HBoxContainer/control/HBoxContainer"]
+margin_left = 725.0
+margin_right = 1000.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/control/HBoxContainer/buttons"]
+margin_right = 90.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom_button" type="Button" parent="HBoxContainer/control/HBoxContainer/buttons"]
+margin_left = 94.0
+margin_right = 184.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[editable path="HBoxContainer/control/HBoxContainer/joystick container/Control/Sprite"]
